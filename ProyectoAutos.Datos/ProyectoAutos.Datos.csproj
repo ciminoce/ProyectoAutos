@@ -43,5 +43,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoAutos.Entidades\ProyectoAutos.Entidades.csproj">
+      <Project>{e23ab9e9-f8a7-47c9-a3f7-ec4d8bf0d40d}</Project>
+      <Name>ProyectoAutos.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
