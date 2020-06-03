@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MarcasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcasForm.Designer.cs">
+      <DependentUpon>MarcasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +69,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TiposForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiposForm.Designer.cs">
+      <DependentUpon>TiposForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MarcasForm.resx">
+      <DependentUpon>MarcasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipalForm.resx">
       <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -65,7 +89,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TiposForm.resx">
+      <DependentUpon>TiposForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,6 +117,21 @@
       <Project>{3f4bec17-eb9d-4b2a-8c98-41218cd52611}</Project>
       <Name>ProyectoAutos.Servicios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ferrari_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tesla_model_x_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cars_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_36px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
