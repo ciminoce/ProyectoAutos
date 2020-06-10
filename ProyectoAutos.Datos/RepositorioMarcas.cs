@@ -35,7 +35,6 @@ namespace ProyectoAutos.Datos
             }
             catch (Exception e)
             {
-                
                 throw new Exception(e.Message);
             }
         }
@@ -47,6 +46,65 @@ namespace ProyectoAutos.Datos
                 MarcaId = reader.GetInt32(0),
                 Nombre = reader.GetString(1)
             };
+        }
+
+        public void Borrar(int marcaId)
+        {
+            try
+            {
+                conexion.Open();
+                string cadenaComando = "DELETE FROM Marcas WHERE MarcaId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                comando.Parameters.AddWithValue("@id", marcaId);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Editar(Marca marca)
+        {
+            try
+            {
+                conexion.Open();
+                string cadenaComando = "UPDATE Marcas SET NombreMarca=@nombre WHERE MarcaId=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                comando.Parameters.AddWithValue("@nombre", marca.Nombre);
+                comando.Parameters.AddWithValue("@id", marca.MarcaId);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
+
+        public void Agregar(Marca marca)
+        {
+            try
+            {
+                conexion.Open();
+                string cadenaComando = "INSERT INTO Marcas VALUES(@nombre)";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                comando.Parameters.AddWithValue("@nombre", marca.Nombre);
+                comando.ExecuteNonQuery();
+                cadenaComando = "SELECT @@IDENTITY";
+                comando=new SqlCommand(cadenaComando,conexion);
+                marca.MarcaId =(int)(decimal) comando.ExecuteScalar();
+                conexion.Close();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

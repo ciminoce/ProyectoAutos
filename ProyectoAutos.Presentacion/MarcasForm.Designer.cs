@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.DatosMetroGrid = new MetroFramework.Controls.MetroGrid();
             this.cmnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.NuevoMetroButton = new MetroFramework.Controls.MetroButton();
+            this.CerrarMetroButton = new MetroFramework.Controls.MetroButton();
             this.cmnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.cmnEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.CerrarMetroButton = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosMetroGrid)).BeginInit();
             this.SuspendLayout();
@@ -65,47 +68,50 @@
             this.DatosMetroGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DatosMetroGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DatosMetroGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DatosMetroGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DatosMetroGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DatosMetroGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosMetroGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cmnMarca,
             this.cmnBorrar,
             this.cmnEditar});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DatosMetroGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DatosMetroGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.DatosMetroGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosMetroGrid.EnableHeadersVisualStyles = false;
             this.DatosMetroGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.DatosMetroGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.DatosMetroGrid.Location = new System.Drawing.Point(0, 0);
+            this.DatosMetroGrid.MultiSelect = false;
             this.DatosMetroGrid.Name = "DatosMetroGrid";
             this.DatosMetroGrid.ReadOnly = true;
             this.DatosMetroGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DatosMetroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DatosMetroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DatosMetroGrid.RowHeadersVisible = false;
             this.DatosMetroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DatosMetroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosMetroGrid.Size = new System.Drawing.Size(866, 543);
             this.DatosMetroGrid.TabIndex = 2;
+            this.DatosMetroGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosMetroGrid_CellContentClick);
             // 
             // cmnMarca
             // 
@@ -114,17 +120,30 @@
             this.cmnMarca.Name = "cmnMarca";
             this.cmnMarca.ReadOnly = true;
             // 
-            // cmnBorrar
+            // dataGridViewImageColumn1
             // 
-            this.cmnBorrar.HeaderText = "Borrar";
-            this.cmnBorrar.Name = "cmnBorrar";
-            this.cmnBorrar.ReadOnly = true;
+            this.dataGridViewImageColumn1.HeaderText = "Borrar";
+            this.dataGridViewImageColumn1.Image = global::ProyectoAutos.Presentacion.Properties.Resources.delete_bin_24px;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
             // 
-            // cmnEditar
+            // dataGridViewImageColumn2
             // 
-            this.cmnEditar.HeaderText = "Editar";
-            this.cmnEditar.Name = "cmnEditar";
-            this.cmnEditar.ReadOnly = true;
+            this.dataGridViewImageColumn2.HeaderText = "Editar";
+            this.dataGridViewImageColumn2.Image = global::ProyectoAutos.Presentacion.Properties.Resources.edit_24px;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            // 
+            // NuevoMetroButton
+            // 
+            this.NuevoMetroButton.BackgroundImage = global::ProyectoAutos.Presentacion.Properties.Resources.add_new_36px;
+            this.NuevoMetroButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.NuevoMetroButton.Location = new System.Drawing.Point(783, 19);
+            this.NuevoMetroButton.Name = "NuevoMetroButton";
+            this.NuevoMetroButton.Size = new System.Drawing.Size(47, 35);
+            this.NuevoMetroButton.TabIndex = 1;
+            this.NuevoMetroButton.UseSelectable = true;
+            this.NuevoMetroButton.Click += new System.EventHandler(this.NuevoMetroButton_Click);
             // 
             // CerrarMetroButton
             // 
@@ -137,12 +156,27 @@
             this.CerrarMetroButton.UseSelectable = true;
             this.CerrarMetroButton.Click += new System.EventHandler(this.CerrarMetroButton_Click);
             // 
+            // cmnBorrar
+            // 
+            this.cmnBorrar.HeaderText = "Borrar";
+            this.cmnBorrar.Image = global::ProyectoAutos.Presentacion.Properties.Resources.delete_bin_24px;
+            this.cmnBorrar.Name = "cmnBorrar";
+            this.cmnBorrar.ReadOnly = true;
+            // 
+            // cmnEditar
+            // 
+            this.cmnEditar.HeaderText = "Editar";
+            this.cmnEditar.Image = global::ProyectoAutos.Presentacion.Properties.Resources.edit_24px;
+            this.cmnEditar.Name = "cmnEditar";
+            this.cmnEditar.ReadOnly = true;
+            // 
             // MarcasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 623);
             this.ControlBox = false;
+            this.Controls.Add(this.NuevoMetroButton);
             this.Controls.Add(this.CerrarMetroButton);
             this.Controls.Add(this.metroPanel1);
             this.Name = "MarcasForm";
@@ -158,9 +192,12 @@
 
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroGrid DatosMetroGrid;
+        private MetroFramework.Controls.MetroButton CerrarMetroButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnMarca;
         private System.Windows.Forms.DataGridViewImageColumn cmnBorrar;
         private System.Windows.Forms.DataGridViewImageColumn cmnEditar;
-        private MetroFramework.Controls.MetroButton CerrarMetroButton;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private MetroFramework.Controls.MetroButton NuevoMetroButton;
     }
 }

@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MarcasAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcasAEForm.Designer.cs">
+      <DependentUpon>MarcasAEForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MarcasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="TiposForm.Designer.cs">
       <DependentUpon>TiposForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MarcasAEForm.resx">
+      <DependentUpon>MarcasAEForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MarcasForm.resx">
       <DependentUpon>MarcasForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +141,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Close_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_bin_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_new_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

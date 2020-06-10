@@ -63,6 +63,26 @@ namespace ProyectoAutos.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_new_36px {
+            get {
+                object obj = ResourceManager.GetObject("add_new_36px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel_24px {
+            get {
+                object obj = ResourceManager.GetObject("cancel_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cars_48px {
             get {
                 object obj = ResourceManager.GetObject("cars_48px", resourceCulture);
@@ -83,6 +103,26 @@ namespace ProyectoAutos.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_bin_24px {
+            get {
+                object obj = ResourceManager.GetObject("delete_bin_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_24px {
+            get {
+                object obj = ResourceManager.GetObject("edit_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enter_48px {
             get {
                 object obj = ResourceManager.GetObject("enter_48px", resourceCulture);
@@ -96,6 +136,16 @@ namespace ProyectoAutos.Presentacion.Properties {
         internal static System.Drawing.Bitmap ferrari_48px {
             get {
                 object obj = ResourceManager.GetObject("ferrari_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ok_24px {
+            get {
+                object obj = ResourceManager.GetObject("ok_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
