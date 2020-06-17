@@ -153,6 +153,16 @@ namespace ProyectoAutos.Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap printer_maintenance_24px {
+            get {
+                object obj = ResourceManager.GetObject("printer_maintenance_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tesla_model_x_48px {
             get {
                 object obj = ResourceManager.GetObject("tesla_model_x_48px", resourceCulture);

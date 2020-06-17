@@ -31,5 +31,10 @@ namespace ProyectoAutos.Servicios
         {
             repositorio.Agregar(marca);
         }
+
+        public bool Existe(Marca marca)
+        {
+            return repositorio.Existe(marca);
+        }
     }
 }

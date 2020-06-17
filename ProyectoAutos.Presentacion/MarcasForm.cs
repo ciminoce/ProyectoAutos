@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework;
 using ProyectoAutos.Entidades.Entities;
+using ProyectoAutos.Reportes;
 using ProyectoAutos.Servicios;
 
 namespace ProyectoAutos.Presentacion
@@ -91,6 +92,7 @@ namespace ProyectoAutos.Presentacion
             {
                 DataGridViewRow r = DatosMetroGrid.SelectedRows[0];
                 Marca marca = (Marca)r.Tag;
+                Marca marcaAux =(Marca) marca.Clone();
                 MarcasAEForm frm=new MarcasAEForm();
                 frm.Text = "Editar Marca";
                 frm.SetMarca(marca);
@@ -100,11 +102,23 @@ namespace ProyectoAutos.Presentacion
                     try
                     {
                         marca = frm.GetMarca();
-                        servicio.Editar(marca);
-                        SetearFila(r,marca);
-                        MetroMessageBox.Show(this, "Registro Editado", "Mensaje",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+                        if (!servicio.Existe(marca))
+                        {
+                            servicio.Editar(marca);
+                            SetearFila(r, marca);
+                            MetroMessageBox.Show(this, "Registro Editado", "Mensaje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                        }
+                        else
+                        {
+                            MetroMessageBox.Show(this, "Marca repetida", "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                            SetearFila(r,marcaAux);
+
+                        }
                     }
                     catch (Exception exception)
                     {
@@ -129,12 +143,23 @@ namespace ProyectoAutos.Presentacion
                 try
                 {
                     Marca marca = frm.GetMarca();
-                    servicio.Agregar(marca);
-                    DataGridViewRow r = ConstruirFila();
-                    SetearFila(r,marca);
-                    AgregarFila(r);
-                    MetroMessageBox.Show(this, "Registro Agregado", "Mensaje",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!servicio.Existe(marca))
+                    {
+                        servicio.Agregar(marca);
+                        DataGridViewRow r = ConstruirFila();
+                        SetearFila(r, marca);
+                        AgregarFila(r);
+                        MetroMessageBox.Show(this, "Registro Agregado", "Mensaje",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else
+                    {
+                        MetroMessageBox.Show(this, "Marca repetida", "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                    }
                 }
                 catch (Exception exception)
                 {
@@ -143,6 +168,18 @@ namespace ProyectoAutos.Presentacion
                         MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void ImprimirMetroButton_Click(object sender, EventArgs e)
+        {
+            lista = servicio.GetMarcas();
+            ManejadorDeReportes manejadorReportes=new ManejadorDeReportes();
+            marcasReporteGeneral rpt = manejadorReportes.GetReporteGeneralMarcas(lista);
+            ReportesForm frm=new ReportesForm();
+            frm.SetReporte(rpt);
+            frm.ShowDialog(this);
+
+
         }
     }
 }
