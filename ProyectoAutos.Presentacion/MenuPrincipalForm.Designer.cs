@@ -33,7 +33,7 @@
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.metroTile3 = new MetroFramework.Controls.MetroTile();
+            this.tiposMetroTile = new MetroFramework.Controls.MetroTile();
             this.SalirMetroTile = new MetroFramework.Controls.MetroTile();
             this.MarcasMetroTile = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
@@ -79,22 +79,23 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // metroTile3
+            // tiposMetroTile
             // 
-            this.metroTile3.ActiveControl = null;
-            this.metroTile3.BackColor = System.Drawing.Color.Lime;
-            this.metroTile3.Location = new System.Drawing.Point(112, 330);
-            this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(166, 103);
-            this.metroTile3.TabIndex = 3;
-            this.metroTile3.Text = "Tipos";
-            this.metroTile3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTile3.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources.tesla_model_x_48px;
-            this.metroTile3.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile3.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.metroTile3.UseCustomBackColor = true;
-            this.metroTile3.UseSelectable = true;
-            this.metroTile3.UseTileImage = true;
+            this.tiposMetroTile.ActiveControl = null;
+            this.tiposMetroTile.BackColor = System.Drawing.Color.Lime;
+            this.tiposMetroTile.Location = new System.Drawing.Point(112, 330);
+            this.tiposMetroTile.Name = "tiposMetroTile";
+            this.tiposMetroTile.Size = new System.Drawing.Size(166, 103);
+            this.tiposMetroTile.TabIndex = 3;
+            this.tiposMetroTile.Text = "Tipos";
+            this.tiposMetroTile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tiposMetroTile.TileImage = global::ProyectoAutos.Presentacion.Properties.Resources.tesla_model_x_48px;
+            this.tiposMetroTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tiposMetroTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.tiposMetroTile.UseCustomBackColor = true;
+            this.tiposMetroTile.UseSelectable = true;
+            this.tiposMetroTile.UseTileImage = true;
+            this.tiposMetroTile.Click += new System.EventHandler(this.tiposMetroTile_Click);
             // 
             // SalirMetroTile
             // 
@@ -155,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 555);
             this.ControlBox = false;
-            this.Controls.Add(this.metroTile3);
+            this.Controls.Add(this.tiposMetroTile);
             this.Controls.Add(this.SalirMetroTile);
             this.Controls.Add(this.MarcasMetroTile);
             this.Controls.Add(this.metroTile1);
@@ -179,7 +180,7 @@
         private System.Windows.Forms.ToolStripMenuItem autosToolStripMenuItem;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroTile MarcasMetroTile;
-        private MetroFramework.Controls.MetroTile metroTile3;
+        private MetroFramework.Controls.MetroTile tiposMetroTile;
         private MetroFramework.Controls.MetroTile SalirMetroTile;
     }
 }

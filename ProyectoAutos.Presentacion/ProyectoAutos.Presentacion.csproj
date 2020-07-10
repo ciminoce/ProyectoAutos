@@ -62,6 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\TipoDeCuadro.cs" />
     <Compile Include="MarcasAEForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +89,12 @@
     </Compile>
     <Compile Include="ReportesForm.Designer.cs">
       <DependentUpon>ReportesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TiposAEForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiposAEForm.Designer.cs">
+      <DependentUpon>TiposAEForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TiposForm.cs">
       <SubType>Form</SubType>
@@ -115,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="ReportesForm.resx">
       <DependentUpon>ReportesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiposAEForm.resx">
+      <DependentUpon>TiposAEForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TiposForm.resx">
       <DependentUpon>TiposForm.cs</DependentUpon>
@@ -180,5 +191,6 @@
   <ItemGroup>
     <None Include="Resources\printer_maintenance_24px.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

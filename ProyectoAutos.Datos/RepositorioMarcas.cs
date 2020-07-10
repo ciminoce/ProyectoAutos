@@ -1,36 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using ProyectoAutos.Entidades.DTOs.Marca;
 using ProyectoAutos.Entidades.Entities;
+using ProyectoAutos.Entidades.Mapas;
 
 namespace ProyectoAutos.Datos
 {
     public class RepositorioMarcas
     {
         private readonly SqlConnection _conexion;
-        public RepositorioMarcas()
+
+        public RepositorioMarcas(SqlConnection conexion)
         {
-            string cadenaConexion = ConfigurationManager.ConnectionStrings["MiConexion"].ToString();
-            _conexion=new SqlConnection(cadenaConexion);
+            _conexion = conexion;
         }
 
-        public List<Marca> GetMarcas()
+        public List<MarcaDto> GetMarcas()
         {
-            List<Marca> lista=new List<Marca>();
+            List<MarcaDto> lista=new List<MarcaDto>();
             try
             {
-                _conexion.Open();
                 string cadenaComando = "SELECT MarcaId, NombreMarca FROM Marcas";
                 SqlCommand comando=new SqlCommand(cadenaComando,_conexion);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
                     Marca marca = ConstruirMarca(reader);
-                    lista.Add(marca);
+                    MarcaDto marcaDto = Mapeador.ConvertirAMarcaDto(marca);
+                    lista.Add(marcaDto);
                 }
                 reader.Close();
-                _conexion.Close();
                 return lista;
             }
             catch (Exception e)
@@ -52,12 +54,10 @@ namespace ProyectoAutos.Datos
         {
             try
             {
-                _conexion.Open();
                 string cadenaComando = "DELETE FROM Marcas WHERE MarcaId=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
                 comando.Parameters.AddWithValue("@id", marcaId);
                 comando.ExecuteNonQuery();
-                _conexion.Close();
 
             }
             catch (Exception e)
@@ -70,13 +70,11 @@ namespace ProyectoAutos.Datos
         {
             try
             {
-                _conexion.Open();
                 string cadenaComando = "UPDATE Marcas SET NombreMarca=@nombre WHERE MarcaId=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
                 comando.Parameters.AddWithValue("@nombre", marca.Nombre);
                 comando.Parameters.AddWithValue("@id", marca.MarcaId);
                 comando.ExecuteNonQuery();
-                _conexion.Close();
 
             }
             catch (Exception e)
@@ -90,7 +88,6 @@ namespace ProyectoAutos.Datos
         {
             try
             {
-                _conexion.Open();
                 string cadenaComando = "INSERT INTO Marcas VALUES(@nombre)";
                 SqlCommand comando = new SqlCommand(cadenaComando, _conexion);
                 comando.Parameters.AddWithValue("@nombre", marca.Nombre);
@@ -98,7 +95,6 @@ namespace ProyectoAutos.Datos
                 cadenaComando = "SELECT @@IDENTITY";
                 comando=new SqlCommand(cadenaComando,_conexion);
                 marca.MarcaId =(int)(decimal) comando.ExecuteScalar();
-                _conexion.Close();
 
             }
             catch (Exception e)
@@ -107,35 +103,29 @@ namespace ProyectoAutos.Datos
             }
         }
 
-        public bool Existe(Marca marca)
+        public bool Existe(MarcaDto marcaDto)
         {
             try
             {
-                _conexion.Open();
                 SqlCommand comando;
-                if (marca.MarcaId==0)
+                if (marcaDto.MarcaId==0)
                 {
                     string cadenaComando = "SELECT MarcaId, NombreMarca FROM Marcas WHERE NombreMarca=@nombre";
                     comando = new SqlCommand(cadenaComando, _conexion);
-                    comando.Parameters.AddWithValue("@nombre", marca.Nombre);
+                    comando.Parameters.AddWithValue("@nombre", marcaDto.Nombre);
                     
                 }
                 else
                 {
                     string cadenaComando = "SELECT MarcaId, NombreMarca FROM Marcas WHERE NombreMarca=@nombre AND Marcaid<>@id";
                      comando = new SqlCommand(cadenaComando, _conexion);
-                    comando.Parameters.AddWithValue("@nombre", marca.Nombre);
-                    comando.Parameters.AddWithValue("@id", marca.MarcaId);
+                    comando.Parameters.AddWithValue("@nombre", marcaDto.Nombre);
+                    comando.Parameters.AddWithValue("@id", marcaDto.MarcaId);
 
 
                 }
                 SqlDataReader reader = comando.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    return true;
-                }
-
-                return false;
+                return reader.HasRows;
             }
             catch (Exception e)
             {

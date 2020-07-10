@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework;
+using ProyectoAutos.Entidades.DTOs.Marca;
 using ProyectoAutos.Entidades.Entities;
 using ProyectoAutos.Reportes;
 using ProyectoAutos.Servicios;
@@ -21,10 +22,15 @@ namespace ProyectoAutos.Presentacion
         }
 
         private ServicioMarcas servicio;
-        private List<Marca> lista;
+        private List<MarcaDto> lista;
         private void MarcasForm_Load(object sender, System.EventArgs e)
         {
             servicio=new ServicioMarcas();
+            LoadRegistros();
+        }
+
+        private void LoadRegistros()
+        {
             lista = servicio.GetMarcas();
             MostrarEnGrilla();
         }
@@ -45,7 +51,7 @@ namespace ProyectoAutos.Presentacion
             DatosMetroGrid.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, Marca marca)
+        private void SetearFila(DataGridViewRow r, MarcaDto marca)
         {
             r.Cells[cmnMarca.Index].Value = marca.Nombre;
 
@@ -91,21 +97,22 @@ namespace ProyectoAutos.Presentacion
             if (e.ColumnIndex == 2)
             {
                 DataGridViewRow r = DatosMetroGrid.SelectedRows[0];
-                Marca marca = (Marca)r.Tag;
-                Marca marcaAux =(Marca) marca.Clone();
+                MarcaDto marcaDto = (MarcaDto)r.Tag;
+                //MarcaDto marcaAux =(Marca) marca.Clone();
                 MarcasAEForm frm=new MarcasAEForm();
                 frm.Text = "Editar Marca";
-                frm.SetMarca(marca);
+                frm.SetMarca(marcaDto);
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr == DialogResult.OK)
                 {
                     try
                     {
-                        marca = frm.GetMarca();
-                        if (!servicio.Existe(marca))
+                        marcaDto = frm.GetMarca();
+
+                        if (!servicio.Existe(marcaDto))
                         {
-                            servicio.Editar(marca);
-                            SetearFila(r, marca);
+                            servicio.Editar(marcaDto);
+                            SetearFila(r, marcaDto);
                             MetroMessageBox.Show(this, "Registro Editado", "Mensaje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
@@ -116,7 +123,8 @@ namespace ProyectoAutos.Presentacion
                             MetroMessageBox.Show(this, "Marca repetida", "Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-                            SetearFila(r,marcaAux);
+                            //SetearFila(r,marcaAux);
+                            LoadRegistros();
 
                         }
                     }
@@ -142,12 +150,12 @@ namespace ProyectoAutos.Presentacion
             {
                 try
                 {
-                    Marca marca = frm.GetMarca();
-                    if (!servicio.Existe(marca))
+                    MarcaDto marcaDto = frm.GetMarca();
+                    if (!servicio.Existe(marcaDto))
                     {
-                        servicio.Agregar(marca);
+                        servicio.Agregar(marcaDto);
                         DataGridViewRow r = ConstruirFila();
-                        SetearFila(r, marca);
+                        SetearFila(r, marcaDto);
                         AgregarFila(r);
                         MetroMessageBox.Show(this, "Registro Agregado", "Mensaje",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
